@@ -14,5 +14,5 @@ export type ButtonLabels =
 | "CASHIER";
 
 export type ButtonIconsTypes = {
-    [key in ButtonLabels]: JSX.Element;
+    [key: string]: (color?: string, className?: string) => JSX.Element;
 }
