@@ -1,10 +1,13 @@
+import { Provider } from 'react-redux'
 import { Carousel } from './Components/Carousel'
 import { Container } from './Components/Container'
-import { BottomCategories, UpperCategories } from './Components/Contents/Categories'
-import { Games } from './Components/Contents/Games'
+import { Contents } from './Components/Contents'
+
+
 import { Footer } from './Components/footer'
 import { Header } from './Components/Header'
 import { useIsMobile } from './hooks/useIsMobile'
+import { store } from './redux/store'
 
 function App() {
   const {isMobile, status, isLandscape} =  useIsMobile()
@@ -14,15 +17,14 @@ function App() {
         </Container>
     } 
      return (
-      <>
+      <Provider store={store}>
+          <>
         {isMobile ? (
 
           <Container>
             <Header/>
             <Carousel/>
-            <UpperCategories/>
-            <Games/>
-            <BottomCategories/>
+            <Contents/>
             <Footer/>
           </Container>
 
@@ -39,6 +41,8 @@ function App() {
           </Container>
         )}
       </>
+      </Provider>
+      
      
     )
 }
