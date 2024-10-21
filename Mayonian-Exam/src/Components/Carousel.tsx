@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
-import { CarouselImages } from "../lib/MockData";
+
 import Swiper from "swiper";
 import { Autoplay } from 'swiper/modules';
 import "swiper/swiper-bundle.css";
+import { BellIcon } from "./icons";
+import { CarouselImages } from "../lib/constants";
 
 Swiper.use([Autoplay]);
 const CarouselImage: React.FC = () => {
@@ -101,6 +103,15 @@ const Letters: React.FC = () => {
     )
 }
 
+const BellNotification:React.FC = () => {
+    return(
+        <div className="flex flex-row items-center my-1 gap-x-1">
+            <BellIcon/>
+            <span className="text-[14px] text-defaultBlue">¡FELICIDADES artxxxxipa! GANADOR DESTACADO </span>
+        </div>
+    )
+}
+
 
 export const Carousel: React.FC = () => {
 
@@ -120,6 +131,7 @@ export const Carousel: React.FC = () => {
       }, []);
 
     return(
+       <>
         <div className="swiper-container shadow-lg overflow-hidden h-full">
             <div className="swiper-wrapper">
                {Array.from({length:3}).map((_, index) => (
@@ -127,5 +139,7 @@ export const Carousel: React.FC = () => {
                ))}
             </div>
         </div>
+        <BellNotification/>
+       </>
     )
 }
