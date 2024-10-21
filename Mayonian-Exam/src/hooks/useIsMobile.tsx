@@ -1,10 +1,10 @@
-import { status } from "../lib/types"
+import { statusTypes } from "../lib/types"
 import { useState, useEffect } from "react";
 
 export const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [isLandscape, setIsLandscape] = useState<boolean>(false);
-    const [status, setStatus] = useState<status>('loading');
+    const [status, setStatus] = useState<statusTypes>('loading');
     const [windowSizeY, setWindowSizeY] = useState<number>(1366) //default size of my monitor
 
     const handleResize = () => { 

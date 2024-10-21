@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import { Button } from "../Button";
 import { ButtonLabels } from "../../lib/types";
 
-export const UpperCategories: React.FC = () => {
+export const UpperCategories: React.FC<{setCategory: Dispatch<SetStateAction<ButtonLabels | null>>}> = ({
+    setCategory
+}) => {
 
     const UpperButtons: ButtonLabels[] = [
         "SEARCH",
@@ -12,13 +14,21 @@ export const UpperCategories: React.FC = () => {
         "LIVE",
         "JACKPOTS"
     ]
-    const [focus, setFocus] = useState<ButtonLabels | string>("")
+    const [focus, setFocus] = useState<ButtonLabels | null>(null)
     return(
         <div className="flex flex-row justify-between">
             {UpperButtons.map((label) => (
                <React.Fragment key={label}>
                     <Button 
-                        onClick={() => setFocus(label)} 
+                        onClick={() => {
+                            if(focus === label) {
+                                setCategory(null)
+                                setFocus(null)
+                                return
+                            }
+                            setFocus(label)
+                            setCategory(label)
+                        }} 
                         focus={focus === label} 
                         label={label} 
                         className="h-9 w-9"
@@ -47,7 +57,7 @@ export const BottomCategories: React.FC = () => {
     const [focus, setFocus] = useState<ButtonLabels | string>("")
 
     return(
-        <div className="absolute bottom-0 w-[94%]  mr-2 bg-white">
+        <div className="absolute bottom-0 w-[94%]  mr-2 bg-white pt-2">
                <div className="flex flex-row justify-between">
                     {BottomButtons.map((label) => (
                     <Button onClick={() => setFocus(label)} 

@@ -1,4 +1,4 @@
-export type status = "loading" | "idle";
+export type statusTypes = "loading" | "idle";
 
 export type ButtonLabels = 
 | "SEARCH"
