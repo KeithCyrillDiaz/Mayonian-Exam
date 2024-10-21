@@ -1,4 +1,4 @@
-import { status } from "../lib"
+import { status } from "../lib/types"
 import { useState, useEffect } from "react";
 
 export const useIsMobile = () => {

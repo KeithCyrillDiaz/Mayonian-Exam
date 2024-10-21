@@ -2,7 +2,7 @@ import React, { useState, useEffect }  from "react";
 import { GameCard } from "./GameCard";
 import { MockGameList } from "../../API/fetchData";
 import { GameType } from "../../lib/MockData";
-import { status } from "../../lib";
+import { status } from "../../lib/types";
 import { Loader } from "../Loader";
 
 export const Games: React.FC = () => {

@@ -1,6 +1,7 @@
 import { Carousel } from './Components/Carousel'
 import { Container } from './Components/Container'
-import { Contents } from './Components/Contents'
+import { BottomCategories, UpperCategories } from './Components/Contents/Categories'
+import { Games } from './Components/Contents/Games'
 import { Footer } from './Components/footer'
 import { Header } from './Components/Header'
 import { useIsMobile } from './hooks/useIsMobile'
@@ -19,7 +20,9 @@ function App() {
           <Container>
             <Header/>
             <Carousel/>
-            <Contents/>
+            <UpperCategories/>
+            <Games/>
+            <BottomCategories/>
             <Footer/>
           </Container>
 
@@ -32,7 +35,7 @@ function App() {
         ) : (
 
           <Container>
-            <Contents/>
+            This Website is for Mobile Devices
           </Container>
         )}
       </>
