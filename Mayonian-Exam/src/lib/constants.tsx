@@ -1,4 +1,3 @@
-import { ButtonIconsTypes, ButtonLabels } from "./types"
 
 export const CarouselImages = {
     backgroundURL: "https://s3-alpha-sig.figma.com/img/9c92/77aa/270977de445b1d1d216031819eb6fd17?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GDlN4ih5RH8D0cKhGQUtQCpl-4QPpYrbtNhzKCq5ZxaurebIjkCYI5nfI3Mc0aeExmEWfPOT9tL~sanRa0o9nDMoAzquaad8EP8c9ExKiEzbttJFjC-EA-y8R-5Z4OWhX2ITrHW-aV~FooC4VYudJE0T62iNgqWBm-DQaeACPYfd9damINJLU-kVzBEv6Td8YDRxUgnCtGJrhhoDpXZ~AmPMO0bNhEyt0zF2AfGMAPaJb~O98Xk7KFsu8lMhi32lLOp5Sf~gP6VLzX1bQmmLGQ1ewD7beiOjeYfMTeV1oTa76SL5b~45jLwTsq6VFyfBwbnyg3QfJ9jd3i4kFXoazw__",
