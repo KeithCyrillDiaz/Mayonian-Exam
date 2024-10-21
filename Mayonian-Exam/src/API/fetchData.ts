@@ -1,5 +1,9 @@
-export const MockGameList = async (succeed: boolean, data: any[]) => {1
-    return await new Promise((resolve) => {
+
+import { data, responseType } from "../lib/MockData"
+
+
+export const MockGameList = async (succeed: boolean): Promise<responseType> => {1
+    return await new Promise<responseType>((resolve, reject) => {
         setTimeout(()=>{
             if(succeed) {
                 resolve({
@@ -10,7 +14,17 @@ export const MockGameList = async (succeed: boolean, data: any[]) => {1
                     },
                     data
                 })
+            } else {
+                alert("Failed Fetching Data")
+                reject({
+                    status: "401",
+                    messages: {
+                        code: 1,
+                        message: "Failed Fetching Data"
+                    },
+                    data: []
+                })
             }
-        }, 3000)
+        }, 300)
     })
 }

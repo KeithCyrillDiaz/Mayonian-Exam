@@ -15,8 +15,8 @@ export const UpperCategories: React.FC = () => {
     const [focus, setFocus] = useState<ButtonLabels | string>("")
     return(
         <div className="flex flex-row justify-between">
-            {UpperButtons.map((label, index) => (
-               <React.Fragment key={label}> {/* Use label as a unique key */}
+            {UpperButtons.map((label) => (
+               <React.Fragment key={label}>
                     <Button 
                         onClick={() => setFocus(label)} 
                         focus={focus === label} 
@@ -47,12 +47,12 @@ export const BottomCategories: React.FC = () => {
     const [focus, setFocus] = useState<ButtonLabels | string>("")
 
     return(
-        <div className="absolute bottom-0 w-[94%]  mr-2">
+        <div className="absolute bottom-0 w-[94%]  mr-2 bg-white">
                <div className="flex flex-row justify-between">
-                    {BottomButtons.map((label, index) => (
+                    {BottomButtons.map((label) => (
                     <Button onClick={() => setFocus(label)} 
                     focus={focus === label} 
-                    key={index} label={label} 
+                    key={label} label={label} 
                     BottomCategories
                     className="h-9 w-9"/>
                     ))}
