@@ -16,16 +16,17 @@ export const UpperCategories: React.FC = () => {
     return(
         <div className="flex flex-row justify-between">
             {UpperButtons.map((label, index) => (
-                <>
-                      <Button 
-                      onClick={() => setFocus(label)} 
-                      focus={focus === label} 
-                      key={index} label={label} 
-                      className="h-9 w-9"/>
-                      {label === "SEARCH" && (
+               <React.Fragment key={label}> {/* Use label as a unique key */}
+                    <Button 
+                        onClick={() => setFocus(label)} 
+                        focus={focus === label} 
+                        label={label} 
+                        className="h-9 w-9"
+                    />
+                    {label === "SEARCH" && (
                         <div className="w-[1px] h-10 bg-defaultGray"/>
-                      )}
-                </>
+                    )}
+                </React.Fragment>
             ))}
         </div>
  
