@@ -23,19 +23,13 @@ export const Games: React.FC<GamesProps> = ({
 
   if (gamesList.length === 0 ) {
     return (
-      <>
-        {searchVisibile ? (
           <div className="flex justify-center items-center pt-20">No games provided</div>
-        ) : (
-          <div className="flex justify-center items-center pt-20">Please check your internet connection</div>
-        )}
-      </>
     )
   }
 
   return (
-    <div className="flex-grow overflow-y-scroll">
-      <div className={`${searchVisibile ? "h-[270px]" : "h-[330px]"} flex flex-wrap gap-2 pb-4`}>
+    <div className="flex-grow overflow-y-scroll overflow-hidden ">
+      <div className={`${searchVisibile ? 'h-[30vh]' : 'h-[40vh]'} flex flex-wrap gap-2 overflow-y-auto py-4 pb-7`}>
         {gamesList.map(game => (
           <GameCard key={game.id} gameData={game}/>
         ))}

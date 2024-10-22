@@ -21,7 +21,7 @@ export const Contents: React.FC = () => {
     },[category])
 
     return(
-        <>
+        <div className="flex flex-col">
             <UpperCategories setCategory = {setCategory}/>
              {category === "SEARCH" &&
               <SearchBar />
@@ -29,7 +29,7 @@ export const Contents: React.FC = () => {
                <Games gamesList = {games} status={status} searchVisibile={category === "SEARCH"}/>
         
             <BottomCategories/>
-        </>
+        </div>
         
 
     )

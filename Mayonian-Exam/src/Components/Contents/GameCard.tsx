@@ -43,7 +43,7 @@ export const GameCard: React.FC<GameCardProps> = ({gameData}) => {
                 <img 
                     src={url} 
                     alt="Background"
-                    className="h-auto w-full max-w-[115px] rounded-[17px]"
+                    className="h-auto max-w-[14vh] rounded-[17px]"
                 />
             </div>
     )

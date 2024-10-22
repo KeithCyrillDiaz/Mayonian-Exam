@@ -72,8 +72,7 @@ export const BottomCategories: React.FC = () => {
     };
 
     return(
-        <div className="absolute bottom-0 w-full px-4 bg-white pt-2 z-30 ml-[-17px]">
-               <div className="flex flex-row justify-between">
+            <div className="flex flex-row absolute space-x-[3vh] bottom-0 bg-white pt-4 z-30">
                     {BottomButtons.map((label) => (
                     <Button onClick={() => {
                         setFocus(label)
@@ -86,7 +85,5 @@ export const BottomCategories: React.FC = () => {
                     className="h-9 w-9"/>
                     ))}
                 </div>
-        </div>
- 
     )
 }

@@ -94,7 +94,7 @@ const IconWithOutCircle:React.FC<IconCircleProps> = ({label, className, focus}) 
 
 const LabelComponent: React.FC<{label: ButtonLabels; focus?: boolean}> = ({label, focus}) => {
     return (
-        <span className={`${focus ? "text-defaultBlue" : "text-defaultGray"} font-poppins text-[12px]`}>{label}</span>
+        <span className={`${focus ? "text-defaultBlue" : "text-defaultGray"} font-poppins text-[1.5vh]`}>{label}</span>
     )
 }
 

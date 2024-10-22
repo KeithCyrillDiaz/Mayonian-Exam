@@ -33,13 +33,13 @@ const CarouselImage: React.FC = () => {
 const Labels: React.FC = () => {
     return(
       <>
-            <span className="text-white font-bold text-[15px] absolute z-10 left-7 top-10">
+            <span className="text-white font-bold text-[2vh] absolute z-10 left-7 top-10">
                 RESCUE
             </span>
-            <span className="text-defaultYellow font-bold text-[15px] absolute z-10 left-7 top-20">
+            <span className="text-defaultYellow font-bold text-[2vh] absolute z-10 left-7 top-20">
                 BONUS
             </span>
-            <span className="text-white font-bold text-[15px] absolute z-10 left-7 top-[120px] w-[100px] h-[100px] ">
+            <span className="text-white font-bold text-[2vh] absolute z-10 left-7 top-[120px] w-[15vh] h-[100px] ">
                 WE ARE HERE FOR YOU
             </span>
       </>
@@ -70,15 +70,17 @@ const CircleLightnings: React.FC = () => {
     const {circleLightning} = CarouselImages
     return(
       <>
+            {/* Bottom Left CircleLightning */}
         <img 
             src={circleLightning} 
             alt="Character" 
-            className="absolute top-3 left-[267px] w-[100px] h-[100px] object-cover" 
+            className="absolute top-3 left-[267px] w-[10vh] h-[100px] object-cover" 
         />
+            {/* top Right CircleLightning */}
             <img 
             src={circleLightning} 
             alt="Character" 
-            className="absolute top-[87px] right-[110px] w-[120px] h-[120px] object-cover" 
+            className="absolute top-[87px] right-[16vh] w-[12vh] h-[15vh] object-cover" 
         />
       </>
     )
@@ -107,7 +109,7 @@ const BellNotification:React.FC = () => {
     return(
         <div className="flex flex-row items-center my-1 gap-x-1">
             <BellIcon/>
-            <span className="text-[14px] text-defaultBlue">¡FELICIDADES artxxxxipa! GANADOR DESTACADO </span>
+            <span className="text-[1.87vh] text-defaultBlue ">¡FELICIDADES artxxxxipa! GANADOR DESTACADO </span>
         </div>
     )
 }
@@ -132,7 +134,7 @@ export const Carousel: React.FC = () => {
 
     return(
        <>
-        <div className="swiper-container shadow-lg overflow-hidden h-full">
+        <div className="swiper-container shadow-lg overflow-hidden auto">
             <div className="swiper-wrapper">
                {Array.from({length:3}).map((_, index) => (
                      <CarouselImage key={index}/>
