@@ -32,7 +32,7 @@ const GameProviderCard: React.FC<{data: GameProviderLogo, onClick: () => void;}>
     return(
         <button 
         onClick={() => {
-            onClick()
+            onClick() 
             handleFetchGamesBaseOnProvider()
         }}
         className="bg bg-defaultOffWhite rounded-[7px] w-[170px] items-center justify-center flex">
