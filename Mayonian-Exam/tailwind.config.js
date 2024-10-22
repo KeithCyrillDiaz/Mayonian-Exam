@@ -11,7 +11,8 @@ export default {
         "defaultGray": "#888888",
         "defaultYellow": "#FFD600",
         "yellowStar": "#FFD703",
-        "transparentBlack": "#020202"
+        "transparentBlack": "#020202",
+        "defaultOffWhite": "#F2F2FA"
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

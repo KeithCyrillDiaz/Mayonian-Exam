@@ -25,6 +25,6 @@ export const MockGameList = async (succeed: boolean): Promise<responseType> => {
                     data: []
                 })
             }
-        }, 300)
+        }, 3000)
     })
 }

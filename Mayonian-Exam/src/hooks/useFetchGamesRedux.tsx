@@ -25,5 +25,5 @@ export const useFetchGamesRedux = () => {
         fetchData();
     }, []); // Include dispatch in the dependency array
 
-    return { games, status }; // Return the relevant data
+    return { games, status, dispatch }; // Return the relevant data
 };

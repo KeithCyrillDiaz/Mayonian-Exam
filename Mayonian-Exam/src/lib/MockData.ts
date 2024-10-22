@@ -10,14 +10,24 @@ export type responseType = {
 
 export type dataTypes = GameType[];
 export type GameProvider = 
-    | "playTech"
-    | "SkyWind Group"
-    | "Pragmatic Play"
-    | "Every Matrix"
-    | "Evolution"
-    | "Expanse"
-    | "Ezugi"
-    | "GameArt";
+| "playTech"
+| "SkyWind Group"
+| "Pragmatic Play"
+| "Every Matrix"
+| "Evolution"
+| "Expanse"
+| "Ezugi"
+| "GameArt"
+| "Habanero"
+| "Hacksaw Gaming"
+| "Inbel Games"
+| "M Play"
+| "Net Ent"
+| "PG Slot Games"
+| "Play N Go"
+| "Play Son"
+| "Red Tiger"
+| "Relax Gaming";
 
 export type GameType = {
     id:number;

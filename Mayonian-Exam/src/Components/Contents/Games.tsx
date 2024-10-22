@@ -21,8 +21,16 @@ export const Games: React.FC<GamesProps> = ({
     return <Loader />;
   }
 
-  if (gamesList.length === 0) {
-    return <div className="flex justify-center items-center pt-20">Please check your internet connection</div>;
+  if (gamesList.length === 0 ) {
+    return (
+      <>
+        {searchVisibile ? (
+          <div className="flex justify-center items-center pt-20">No games provided</div>
+        ) : (
+          <div className="flex justify-center items-center pt-20">Please check your internet connection</div>
+        )}
+      </>
+    )
   }
 
   return (

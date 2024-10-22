@@ -72,7 +72,7 @@ export const BottomCategories: React.FC = () => {
     };
 
     return(
-        <div className="absolute bottom-0 w-[94%]  mr-2 bg-white pt-2">
+        <div className="absolute bottom-0 w-full px-4 bg-white pt-2 z-30 ml-[-17px]">
                <div className="flex flex-row justify-between">
                     {BottomButtons.map((label) => (
                     <Button onClick={() => {

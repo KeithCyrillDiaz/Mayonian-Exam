@@ -1,5 +1,9 @@
 import React from "react";
 import { CloseIcon, GameProviderIcon } from "../icons";
+import { GameProviderLogo, GameProviderLogos } from "../../lib/constants";
+import { useDispatch } from "react-redux";
+
+import { setProviderGames } from "../../redux/gameSlice";
 
 
 const Header: React.FC<{onClick: () => void;}> = ({onClick}) => {
@@ -13,9 +17,41 @@ const Header: React.FC<{onClick: () => void;}> = ({onClick}) => {
             <button onClick={onClick}>
                 <CloseIcon/>
             </button>
-         
+        </div>
+    )
+}
+
+const GameProviderCard: React.FC<{data: GameProviderLogo, onClick: () => void;}> = ({data, onClick}) => {
+    const {logoUrl, title} = data
+    const dispatch = useDispatch()
+
+    const handleFetchGamesBaseOnProvider = () => {
+        dispatch(setProviderGames(title))
+    }
+
+    return(
+        <button 
+        onClick={() => {
+            onClick()
+            handleFetchGamesBaseOnProvider()
+        }}
+        className="bg bg-defaultOffWhite rounded-[7px] w-[170px] items-center justify-center flex">
+            <img
+            src={logoUrl}
+            className=" w-[100px] h-auto"
+            />
+        </button>
+    )
+}
 
 
+const RenderGameProviders:React.FC<{onClick: () => void;}> = ({onClick}) => {
+
+    return (
+        <div className="flex flex-wrap gap-4 items-center justify-center py-4 overflow-y-scroll h-[300px]">
+            {GameProviderLogos.map((item, index) => (
+                <GameProviderCard key={index} data={item} onClick={onClick}/>
+            ))}
         </div>
     )
 }
@@ -27,9 +63,10 @@ export const GameProviderModal:React.FC<{onClick: () => void; inOutAnimation?: b
     inOutAnimation
 }) => {
     return(
-       <div className={`${inOutAnimation ? "exit-to-bottom":"slide-in-from-bottom"} absolute h-[100vh] bg-white z-20 w-full ml-[-16px]`}
+       <div className={`${inOutAnimation ? "exit-to-bottom":"slide-in-from-bottom"} absolute bottom-0 h-[50vh] bg-white z-20 w-full ml-[-16px]`}
        >
         <Header onClick={onClick}/>
+        <RenderGameProviders onClick = {onClick}/>
        </div>
     )
 }

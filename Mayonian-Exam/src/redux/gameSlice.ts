@@ -1,6 +1,6 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GameType } from '../lib/MockData'; // Make sure this path is correct
+import { GameProvider, GameType } from '../lib/MockData'; // Make sure this path is correct
 import { statusTypes } from '../lib/types';
 
 interface GameState {
@@ -39,6 +39,13 @@ const gameSlice = createSlice({
       gameToUpdate.favorite = favorite;
     },
 
+    setProviderGames: (state, action: PayloadAction<GameProvider>) => {
+      const searchTerm = action.payload.toLowerCase();
+      state.filteredGames = state.games.filter(game => 
+        game.gameProvider.toLowerCase().includes(searchTerm)
+      );
+    },
+
     getFavorites: (state) => {
       const favoriteGames = state.games.filter(game => game.favorite === true);
       state.filteredGames = favoriteGames;
@@ -46,5 +53,5 @@ const gameSlice = createSlice({
   },
 });
 
-export const { setGames, filterGames, setStatus, setFavorite, getFavorites} = gameSlice.actions;
+export const { setGames, filterGames, setStatus, setFavorite, setProviderGames, getFavorites} = gameSlice.actions;
 export default gameSlice.reducer;
