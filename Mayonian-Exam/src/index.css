@@ -4,3 +4,32 @@
 @tailwind utilities;
 
 
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%); /* Start from the top */
+        opacity: 1; /* Start invisible */
+    }
+    100% {
+        transform: translateY(0%); /* End at the original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+@keyframes exitToBottom {
+    0% {
+        transform: translateY(0%); /* Start from the top */
+        opacity: 1; /* Start invisible */
+    }
+    100% {
+        transform: translateY(100%); /* End at the original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.slide-in-from-bottom {
+    animation: slideInFromBottom 0.7s ease-in-out; /* Adjust duration and timing function as needed */
+  }
+
+.exit-to-bottom {
+animation: exitToBottom 0.7s ease-in-out; /* Adjust duration and timing function as needed */
+}
