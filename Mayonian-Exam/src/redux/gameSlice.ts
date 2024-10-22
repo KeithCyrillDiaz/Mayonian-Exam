@@ -37,10 +37,14 @@ const gameSlice = createSlice({
       const gameToUpdate = state.games.find(game => game.id === id);
       if(!gameToUpdate)return state
       gameToUpdate.favorite = favorite;
-      console.log("game: ", JSON.stringify(gameToUpdate, null, 1))
+    },
+
+    getFavorites: (state) => {
+      const favoriteGames = state.games.filter(game => game.favorite === true);
+      state.filteredGames = favoriteGames;
     }
   },
 });
 
-export const { setGames, filterGames, setStatus, setFavorite } = gameSlice.actions;
+export const { setGames, filterGames, setStatus, setFavorite, getFavorites} = gameSlice.actions;
 export default gameSlice.reducer;

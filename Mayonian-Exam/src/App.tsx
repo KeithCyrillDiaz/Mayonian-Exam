@@ -37,7 +37,8 @@ function App() {
         ) : (
 
           <Container>
-            This Website is for Mobile Devices Only
+             <Contents/>
+            {/* This Website is for Mobile Devices Only */}
           </Container>
         )}
       </>

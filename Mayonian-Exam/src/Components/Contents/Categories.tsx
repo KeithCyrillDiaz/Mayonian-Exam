@@ -1,6 +1,9 @@
 import React, {Dispatch, SetStateAction, useState} from "react";
 import { Button } from "../Button";
 import { ButtonLabels } from "../../lib/types";
+import { useDispatch, useSelector } from "react-redux";
+import { getFavorites, setGames} from "../../redux/gameSlice";
+import { RootState } from "../../redux/store";
 
 export const UpperCategories: React.FC<{setCategory: Dispatch<SetStateAction<ButtonLabels | null>>}> = ({
     setCategory
@@ -14,7 +17,7 @@ export const UpperCategories: React.FC<{setCategory: Dispatch<SetStateAction<But
         "LIVE",
         "JACKPOTS"
     ]
-    const [focus, setFocus] = useState<ButtonLabels | null>(null)
+    const [focus, setFocus] = useState<ButtonLabels>("START")
     return(
         <div className="flex flex-row justify-between">
             {UpperButtons.map((label) => (
@@ -22,8 +25,8 @@ export const UpperCategories: React.FC<{setCategory: Dispatch<SetStateAction<But
                     <Button 
                         onClick={() => {
                             if(focus === label) {
-                                setCategory(null)
-                                setFocus(null)
+                                setCategory("START")
+                                setFocus("START")
                                 return
                             }
                             setFocus(label)
@@ -44,6 +47,7 @@ export const UpperCategories: React.FC<{setCategory: Dispatch<SetStateAction<But
 }
 
 
+
 export const BottomCategories: React.FC = () => {
 
     const BottomButtons: ButtonLabels[] = [
@@ -54,13 +58,28 @@ export const BottomCategories: React.FC = () => {
         "CASHIER"
     ]
 
-    const [focus, setFocus] = useState<ButtonLabels | string>("")
+    const [focus, setFocus] = useState<ButtonLabels>("CASINO LIVE")
+    const dispatch = useDispatch()
+
+    const allGames = useSelector((state: RootState) => state.game.games)
+    
+    const filterGames = () => {
+        dispatch(getFavorites()); 
+    };
+
+    const fetchAllGames = () => {
+        dispatch(setGames(allGames))
+    };
 
     return(
         <div className="absolute bottom-0 w-[94%]  mr-2 bg-white pt-2">
                <div className="flex flex-row justify-between">
                     {BottomButtons.map((label) => (
-                    <Button onClick={() => setFocus(label)} 
+                    <Button onClick={() => {
+                        setFocus(label)
+                        if(label === "FAVORITES") filterGames()
+                        if(label === "CASINO LIVE") fetchAllGames()
+                    }} 
                     focus={focus === label} 
                     key={label} label={label} 
                     BottomCategories
